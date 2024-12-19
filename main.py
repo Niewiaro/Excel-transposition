@@ -1,4 +1,9 @@
 from openpyxl import load_workbook
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 
 
 class Config:
@@ -9,7 +14,12 @@ class Config:
         self.input_path = Path.cwd() / self.input_name
 
 
+def df_transform():
+    pass
+
+
 def main() -> None:
+    logging.info("Start")
     config = Config()
     workbook = load_workbook(config.input_path)
     sheets_names = workbook.sheetnames
